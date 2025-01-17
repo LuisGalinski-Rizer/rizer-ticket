@@ -23,11 +23,18 @@ class TicketController extends Controller
     public function store(Request $request){
         $dados = $request->all();
         $tickets = New Tickets;
+        $tecnico_id = "";
 
+        if($dados["tecnico_id"] == "automatico") {
+            $tecnico_id = User::minTicket();
+        } else {
+            $tecnico_id = $dados["tecnico_id"];
+        }
+        
         $tickets->assunto    = $dados["assunto"];
         $tickets->descricao  = $dados["descricao"];
         $tickets->status_id  = $dados["status_id"];
-        $tickets->tecnico_id = $dados["tecnico_id"];
+        $tickets->tecnico_id = $tecnico_id;
         $tickets->save();
 
         return redirect('tickets');
@@ -55,6 +62,13 @@ class TicketController extends Controller
         $ticket->status_id  = $dados["status_id"];
         $ticket->tecnico_id = $dados["tecnico_id"];
         $ticket->save();
+
+        return redirect('tickets');
+    }
+
+    public function destroy($id){
+        $ticket = Tickets::find($id);
+        $ticket->delete();
 
         return redirect('tickets');
     }

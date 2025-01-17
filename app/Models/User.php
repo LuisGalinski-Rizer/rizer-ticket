@@ -42,4 +42,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public static function minTicket(){
+        $query = User::selectRaw('COUNT(*) as Total, users.id')
+        ->leftJoin('tickets', 'users.id', '=', 'tickets.tecnico_id')
+        ->where('users.vendedor', '=' ,1)
+        ->groupBy('users.id')
+        ->orderBy('Total', 'asc')
+        ->first();
+
+        return $query['id'];
+    }
 }

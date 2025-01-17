@@ -23,14 +23,23 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <style scoped>
+            body {
+                background-color: #e9ecef !important;
+            }
+        </style>
     </head>
+
     <body>
+
+        @include('layouts.header')
 
             <!-- Page Heading -->
 
 
             <!-- Page Content -->
-            <main>
+            <main class="container">
                 {{ $slot }}
             </main>
 

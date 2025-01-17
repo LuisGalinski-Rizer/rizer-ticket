@@ -17,7 +17,7 @@
             Assunto: {{$ticket->assunto}} <br>
             Descrição: {{$ticket->descricao}} <br>
             Data: {{$ticket->created_at}} <br>
-            Status: {{$ticket->status}} <br>
+            Status: {{$ticket->status->status}} <br>
         </div>
     </div>
 
