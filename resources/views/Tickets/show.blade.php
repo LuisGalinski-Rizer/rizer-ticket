@@ -16,7 +16,7 @@
             ID: {{$ticket->id}} <br>
             Assunto: {{$ticket->assunto}} <br>
             Descrição: {{$ticket->descricao}} <br>
-            Data: {{$ticket->created_at}} <br>
+            Data: {{ (new DateTime($ticket->created_at))->format('d/m/Y H:i:s')}} <br>
             Status: {{$ticket->status->status}} <br>
         </div>
     </div>

@@ -1,21 +1,6 @@
 <x-app-layout>  
 
     <style scoped> 
-        * {
-            font-family: "Poppins", serif;
-            font-weight: 500;
-        }
-
-        .navbar{
-            color: #5a5a5a;
-            font-size: 18px;
-            letter-spacing: 1px;
-            font-weight: 500;
-        }
-
-        .nav-item{
-            margin-right: 20px;
-        }
 
         .div-table{
             background-color:white;
@@ -84,7 +69,7 @@
                             <td>{{ $ticket->id }}</td>
                             <td>{{ $ticket->assunto }}</td>
                             <td>{{ $ticket->descricao }}</td>
-                            <td>{{ (new DateTime($ticket->created_at))->format('d/m/Y')}}</td>
+                            <td>{{ (new DateTime($ticket->created_at))->format('d/m/Y H:i:s')}}</td>
                             <td>{{ $ticket->status->status }}</td>
                             <td>{{ $ticket->tecnico->name }}</td>
                             <td class="acoes">
