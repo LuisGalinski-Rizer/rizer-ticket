@@ -14,8 +14,8 @@
     <div>
         <form method="post" action="{{ route('tickets.store') }}">
             @csrf
-            <input type="text" name="assunto" id="assunto" placeholder="Assunto">
-            <input type="text" name="descricao" id="descricao" placeholder="Descrição">
+            <input type="text" name="assunto" id="assunto" placeholder="Assunto" required>
+            <input type="text" name="descricao" id="descricao" placeholder="Descrição" required>
             <select name="status_id" id="status_id">
                 <option value="">Selecione...</option>
                 @foreach($status as $statu)

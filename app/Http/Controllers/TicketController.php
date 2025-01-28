@@ -16,7 +16,7 @@ class TicketController extends Controller
 
     public function create(){
         $status = Status::get();
-        $users = User::get();
+        $users = User::where('tecnico', '=', 1)->get();
         return view('tickets.add', ['status' => $status, 'users' => $users]);
     }
 

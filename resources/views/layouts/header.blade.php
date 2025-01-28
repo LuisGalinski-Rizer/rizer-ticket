@@ -29,7 +29,7 @@
 
     <ul>
         <a class="nav-item" href="{{ route('tickets.index') }}">Tickets</a>
-        <a class="nav-item" href="">Usuários</a>
+        <a class="nav-item" href="{{ route('usuarios.index') }}">Usuários</a>
     </ul>
 
 </div>
