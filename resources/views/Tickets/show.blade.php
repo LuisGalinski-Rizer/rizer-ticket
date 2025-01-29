@@ -18,6 +18,7 @@
             Descrição: {{$ticket->descricao}} <br>
             Data: {{ (new DateTime($ticket->created_at))->format('d/m/Y H:i:s')}} <br>
             Status: {{$ticket->status->status}} <br>
+            Técnico alocado: {{$ticket->tecnico->name}} <br>
         </div>
     </div>
 
