@@ -21,6 +21,14 @@
             Status:  {{$usuarios->status}} <br>
             É técnico: {{$usuarios->tecnico}} <br>
 
+            @if ( $usuarios->tecnico == 1)
+                <h1>STAUTS DOS TICKETS</h1>
+                Abertos:  {{$ticketsAbertos}} <br>
+                Em andamento: {{$ticketsAndamento}} <br> 
+                Atrasados: {{$ticketsAtrasados}} <br>
+                Resolvidos: {{$ticketsResolvidos}} <br>
+            @endif
+
         </div>
     </div>
 

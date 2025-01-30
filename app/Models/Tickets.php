@@ -20,4 +20,11 @@ class Tickets extends Model {
         return $this->belongsTo(User::class, 'tecnico_id');
     }
 
+    public static function getQuantidade($statusId, $userId){
+        $query = Tickets::selectRaw('COUNT(*) as Total')
+                ->where('status_id', '=' , $statusId)
+                ->where('tecnico_id', '=', $userId)
+                ->get();
+        return $query[0]['Total'];
+    }
 }

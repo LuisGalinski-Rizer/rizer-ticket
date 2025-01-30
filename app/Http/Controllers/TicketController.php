@@ -53,14 +53,12 @@ class TicketController extends Controller
     }
 
     public function edit($id){
-        try {
+    
             $ticket = Tickets::find($id);
             $status = Status::get();
             $users = User::get();
             return view('tickets.edit', ['ticket' => $ticket, 'users' => $users, 'status' => $status]);
-        } catch (Exception $e) {            
-            return back()->withInput()->with('error', "Ocorreu o erro:" . $e->getMessage());
-        }
+
     }
 
     public function update(Request $request, $id){

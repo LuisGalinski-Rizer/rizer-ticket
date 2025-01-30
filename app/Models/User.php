@@ -47,6 +47,7 @@ class User extends Authenticatable
         $query = User::selectRaw('COUNT(*) as Total, users.id')
         ->leftJoin('tickets', 'users.id', '=', 'tickets.tecnico_id')
         ->where('users.tecnico', '=' ,1)
+        ->where('users.status', '=', 1)
         ->groupBy('users.id')
         ->orderBy('Total', 'asc')
         ->first();
